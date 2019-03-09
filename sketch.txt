@@ -1,0 +1,30 @@
+Name: ?????????
+
+
+Goals:
+	- get to the end before "the moving shadow" catches you (alive)
+
+player's attack:
+	- start game with zero throwing objects
+	- get throwing objects on the level
+
+Enemies' attack:
+	- if you touch them, you'll die
+
+stages:
+	- prison escape
+	- ????????
+
+
+
+
+Priority:
+	- primary stage design  
+	- moving player
+	- boundaries
+	- "the moving shadow" (is it a demon? is it an experiment? idk)
+	- enemies
+	- throw objects
+	- more stages
+	- contextualize with story
+	- events
