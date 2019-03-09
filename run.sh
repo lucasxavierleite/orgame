@@ -9,6 +9,6 @@ else
 	asm=$1
 	mif=${1/.asm/.mif}
 
-	./montador $asm $mif
-	./sim $mif charmap.mif
+	montador $asm $mif
+	sim $mif charmap.mif
 fi
