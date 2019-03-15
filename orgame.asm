@@ -23,6 +23,28 @@
 ; 3840 black                        1111 0000
 ; ===========================================
 
+;******** game menu ************************************************************
+;
+;  Game initial menu. Press start to continue
+;
+
+;sample : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+menu1   : string " @@@@@                                  "
+menu2   : string " @   @  @@@@   @@@    @@@   @    @ @@@@ "
+menu3   : string " @   @  @   @ @   @  @   @  @@  @@ @    "
+menu4   : string " @   @  @   @ @      @   @  @ @@ @ @@@  "
+menu5   : string " @   @  @@@@  @  @@  @@@@@  @    @ @    "
+menu6   : string " @   @  @  @  @   @  @   @  @    @ @    "
+menu7   : string " @@@@@  @   @  @@@   @   @  @    @ @@@@ "
+menu8   : string "                                        "
+menu9   : string "                                        "
+menu10  : string "                                        "
+menu11  : string "                                        "
+menu12  : string "                                        "
+menu13  : string "             <PRESS ENTER>              "
+
+;*******************************************************************************
+
 
 ;******** game map *************************************************************
 ;
@@ -34,6 +56,7 @@
 ;    '*': next stage
 ;
 
+;sample   : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 mapLine1  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 mapLine2  : string "@    @     @    @                      @"
 mapLine3  : string "@               @                      @"
@@ -80,10 +103,50 @@ main:
 
 	add r1, r1, r2 ; add color
 
+	call menu
 	call printMap
 	call loop
 
 	halt
+
+;******** menu *****************************************************************
+;
+;  Prints the initial menu. Press start to continue
+;
+
+menu:
+	push fr
+	push r0
+	push r1
+	push r2
+	push r3
+	push r4
+	push r5
+
+	loadn r0, #240   ; menu initial position
+	loadn r1, #menu1 ; menu first line
+	loadn r2, #0     ; menu default color
+	loadn r3, #760   ; last character position 13 * 40 + 240 = 760
+	call printMapLine
+
+	loadn r4, #13 ; enter
+
+menuLoop:
+	inchar r5
+	cmp r5, r4
+	jne menuLoop
+
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	pop r0
+	pop fr
+	rts
+
+;*******************************************************************************
+
 
 ;*******************************************************************************
 
@@ -128,6 +191,7 @@ printc:
 ;
 
 printMapLine:
+	push fr
 	push r0
 	push r1
 	push r2
@@ -165,6 +229,7 @@ printMapLineLoop:
 	pop r2
 	pop r1
 	pop r0
+	pop fr
 
 	rts
 
@@ -189,6 +254,7 @@ breakln:
 ;
 
 printMap:
+	push fr
 	push r0
 	push r1
 	push r2
@@ -204,6 +270,7 @@ printMap:
 	pop r2
 	pop r1
 	pop r0
+	pop fr
 	rts
 
 ;*******************************************************************************
@@ -281,7 +348,7 @@ loop:
 
 ;******** player's control *****************************************************
 ;
-;  Player's movements and actions
+;  Player's movements (w, a, s, d) and actions
 ;
 ;  Registers:
 ;    r0: player's current position
@@ -290,6 +357,7 @@ loop:
 
 ; w (up)
 moveUp:
+	push fr
 	push r1
 	push r7
 
@@ -299,10 +367,12 @@ moveUp:
 
 	pop r7
 	pop r1
+	pop fr
 	rts
 
 ; a (left)
 moveLeft:
+	push fr
 	push r1
 	push r7
 
@@ -311,10 +381,12 @@ moveLeft:
 
 	pop r7
 	pop r1
+	pop fr
 	rts
 
 ; s (down)
 moveDown:
+	push fr
 	push r1
 	push r7
 
@@ -324,10 +396,12 @@ moveDown:
 
 	pop r7
 	pop r1
+	pop fr
 	rts
 
 ; d (right)
 moveRight:
+	push fr
 	push r1
 	push r7
 
@@ -336,6 +410,7 @@ moveRight:
 	
 	pop r7
 	pop r1
+	pop fr
 	rts
 
 ;*******************************************************************************
