@@ -196,7 +196,7 @@ mapLine30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 ;
 
 main:
-	loadn r0, #81  ; player initial position
+	loadn r0, #44  ; player initial position
 	loadn r1, #'X' ; player
 	loadn r2, #512 ; player color
 	loadn r7, #' ' ; blank space ("floor")
@@ -457,6 +457,41 @@ printMap:
 
 ;*******************************************************************************
 
+;******** getMapPositionContent ************************************************
+;
+;  Gets the content of the map position specified in r0 and returns it in r3
+;
+;    Registers:
+;      r0: map position (parameter)
+;      r1: temporary
+;      r2: temporary
+;      r3: content (return)
+;
+
+getMapPositionContent:
+	push fr
+	push r0
+	push r1
+	push r3
+
+	loadn r1, #40
+	div r1, r0, r1 ; r1 = pos/40 ('\0')
+	loadn r3, #mapLine1
+
+	loadn r2, #0
+	add r2, r0, r1 ; pos + \0
+	add r2, r2, r3 ; pos + \0 + map
+
+	loadi r2, r2
+
+	pop r3
+	pop r1
+	pop r0
+	pop fr
+	rts
+
+;*******************************************************************************
+
 
 ;******** objects colors *******************************************************
 ;
@@ -517,7 +552,6 @@ loop:
 	ceq moveRight
 
 	jmp loop
-	rts
 
 ;*******************************************************************************
 
@@ -529,62 +563,102 @@ loop:
 ;  Registers:
 ;    r0: player's current position
 ;    r1: temporary
+;    r2: next map position content
 ;    r7: blank space
+;
 
-; w (up)
+;***** w (up) *****
 moveUp:
 	push fr
 	push r1
+	push r2
 	push r7
+	
+	loadn r1, #40
+	
+	sub r0, r0, r1
+	call getMapPositionContent
+	add r0, r0, r1
+	cmp r2, r7
+	jne moveUpReturn
 
 	outchar r7, r0
-	loadn r1, #40
 	sub r0, r0, r1
 
+moveUpReturn:
 	pop r7
+	pop r2
 	pop r1
 	pop fr
 	rts
 
-; a (left)
+;***** a (left) *****
 moveLeft:
 	push fr
 	push r1
+	push r2
 	push r7
+	
+	dec r0
+	call getMapPositionContent
+	inc r0
+	cmp r2, r7
+	jne moveLeftReturn
 
 	outchar r7, r0
 	dec r0
 
+moveLeftReturn:
 	pop r7
+	pop r2
 	pop r1
 	pop fr
 	rts
 
-; s (down)
+;***** s (down) *****
 moveDown:
 	push fr
 	push r1
+	push r2
 	push r7
+	
+	loadn r1, #40
+	
+	add r0, r0, r1
+	call getMapPositionContent
+	sub r0, r0, r1
+	cmp r2, r7
+	jne moveDownReturn
 
 	outchar r7, r0
-	loadn r1, #40
 	add r0, r0, r1
 
+moveDownReturn:
 	pop r7
+	pop r2
 	pop r1
 	pop fr
 	rts
 
-; d (right)
+;***** d (right) *****
 moveRight:
 	push fr
 	push r1
+	push r2
 	push r7
 
+	inc r0
+	call getMapPositionContent
+	dec r0
+	cmp r2, r7
+	jne moveRightReturn
+	
 	outchar r7, r0
 	inc r0
-	
+
+moveRightReturn:
 	pop r7
+	pop r2
 	pop r1
 	pop fr
 	rts
