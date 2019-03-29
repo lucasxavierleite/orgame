@@ -143,47 +143,80 @@ intro2Line30 : string "                                        "
 ;*******************************************************************************
 
 
-;******** game map *************************************************************
+;******** game maps ************************************************************
 ;
-;  This is the game map. 30 lines, each one of them has 40 characters
+;  These are the game maps. 30 lines, each one of them has 40 characters
 ;  Each symbol represents one object/color. For now, they are:
 ;    ' ': floor
 ;    '@': wall
 ;    '#': locked door
 ;    '*': next stage
 ;
+;  IMPORTANT: the maps and the map lines must be declared sequentialy
+;
 
 ;sample   : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-mapLine1  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-mapLine2  : string "@    @     @    @                      @"
-mapLine3  : string "@               @                      @"
-mapLine4  : string "@               @                  @@  @"
-mapLine5  : string "@    @     @    @             @@@@@@@  @"
-mapLine6  : string "@@@@@@@   @@@@@@@             @     @  @"
-mapLine7  : string "@    @     @    @             @     @  @"
-mapLine8  : string "@               @@  @@        @     @  @"
-mapLine9  : string "@               @    @@@@###@@@     @  @"
-mapLine10 : string "@    @     @    @    @              @  @"
-mapLine11 : string "@@@@@@     @@@@@@                   @  @"
-mapLine12 : string "@    @     @    @                   @  @"
-mapLine13 : string "@               @    @       @@@@@@@@  @"
-mapLine14 : string "@               @    @@@     @**    @  @"
-mapLine15 : string "@    @     @    @@  @@ @     @**@   @  @"
-mapLine16 : string "@ @@@@@###@@@@@@@@@@@  @     @@@@   @  @"
-mapLine17 : string "@    @                 @           @@  @"
-mapLine18 : string "@    @                @@          @@@  @"
-mapLine19 : string "@    @              @@@@@####@@@@@@@@  @"
-mapLine20 : string "@    @@@  @@        @            @@@@  @"
-mapLine21 : string "@    @      @       @@          @@@@@  @"
-mapLine22 : string "@   @        @       @@        @@ @@@  @"
-mapLine23 : string "@  @          @       @@      @@   @@  @"
-mapLine24 : string "@      @@@@            @@@  @@@     @  @"
-mapLine25 : string "@      @@@@                            @"
-mapLine26 : string "@  @          @                        @"
-mapLine27 : string "@   @        @         @@@@@@@@     @@@@"
-mapLine28 : string "@    @      @         @@@@@@@@@@   @@@@@"
-mapLine29 : string "@     @@@@@@         @@@@@@@@@@@@ @@@@@@"
-mapLine30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map1Line1  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map1Line2  : string "@    @     @    @                      @"
+map1Line3  : string "@               @                      @"
+map1Line4  : string "@               @                  @@  @"
+map1Line5  : string "@    @     @    @             @@@@@@@  @"
+map1Line6  : string "@@@@@@@   @@@@@@@             @     @  @"
+map1Line7  : string "@    @     @    @             @     @  @"
+map1Line8  : string "@               @@  @@        @     @  @"
+map1Line9  : string "@               @    @@@@###@@@     @  @"
+map1Line10 : string "@    @     @    @    @              @  @"
+map1Line11 : string "@@@@@@     @@@@@@                   @  @"
+map1Line12 : string "@    @     @    @                   @  @"
+map1Line13 : string "@               @    @       @@@@@@@@  @"
+map1Line14 : string "@               @    @@@     @**    @  @"
+map1Line15 : string "@    @     @    @@  @@ @     @**@   @  @"
+map1Line16 : string "@ @@@@@###@@@@@@@@@@@  @     @@@@   @  @"
+map1Line17 : string "@    @                 @           @@  @"
+map1Line18 : string "@    @                @@          @@@  @"
+map1Line19 : string "@    @              @@@@@####@@@@@@@@  @"
+map1Line20 : string "@    @@@  @@        @            @@@@  @"
+map1Line21 : string "@    @      @       @@          @@@@@  @"
+map1Line22 : string "@   @        @       @@        @@ @@@  @"
+map1Line23 : string "@  @          @       @@      @@   @@  @"
+map1Line24 : string "@      @@@@            @@@  @@@     @  @"
+map1Line25 : string "@      @@@@                            @"
+map1Line26 : string "@  @          @                        @"
+map1Line27 : string "@   @        @         @@@@@@@@     @@@@"
+map1Line28 : string "@    @      @         @@@@@@@@@@   @@@@@"
+map1Line29 : string "@     @@@@@@         @@@@@@@@@@@@ @@@@@@"
+map1Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+map2Line1  : string "                                        "
+map2Line2  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map2Line3  : string "@                                      @"
+map2Line4  : string "@                                      @"
+map2Line5  : string "@                                      @"
+map2Line6  : string "@     #####                  #####     @"
+map2Line7  : string "@    ########              ########    @"
+map2Line8  : string "@      ########          ########      @"
+map2Line9  : string "@                                      @"
+map2Line10 : string "@     @@@@@@@@@          @@@@@@@@@     @"
+map2Line11 : string "@     @       @          @       @     @"
+map2Line12 : string "@     @  ***  @          @  ***  @     @"
+map2Line13 : string "@     @  ***  @          @  ***  @     @"
+map2Line14 : string "@     @  ***  @          @  ***  @     @"
+map2Line15 : string "@     @       @          @       @     @"
+map2Line16 : string "@     @@@@@@@@@          @@@@@@@@@     @"
+map2Line17 : string "@                                      @"
+map2Line18 : string "@                                      @"
+map2Line19 : string "@                                      @"
+map2Line20 : string "@                                      @"
+map2Line21 : string "@                @    @                @"
+map2Line22 : string "@                                      @"
+map2Line23 : string "@                                      @"
+map2Line24 : string "@              @@@@@@@@@@              @"
+map2Line25 : string "@             @**********@             @"
+map2Line26 : string "@             @**********@             @"
+map2Line27 : string "@              @@@@  @@@@              @"
+map2Line28 : string "@                                      @"
+map2Line29 : string "@                                      @"
+map2Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
 
 ;*******************************************************************************
@@ -196,32 +229,51 @@ mapLine30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 ;
 
 main:
-	loadn r0, #44  ; player initial position
 	loadn r1, #'X' ; player
-	loadn r2, #512 ; player color
-	loadn r7, #' ' ; blank space ("floor")
+	loadn r2, #512 ; player color (green)
+	loadn r7, #' ' ; blank space ('floor')
 
-	add r1, r1, r2 ; add color
+	add r1, r1, r2
 
 	call menu
 	call printIntro
+
+	loadn r0, #552 ; player initial position
+	loadn r4, #0 ; loads first map
 	call printMap
 	call loop
+	call clear
 
-	halt
+	loadn r0, #90  ; player initial position
+	inc r4 ; next map
+	call printMap
+	call loop
+	call clear
+
+	;call gameOver
+	call reset
+	jmp main
+
 
 ;******** menu *****************************************************************
 ;
 ;  Prints the initial menu. Press enter to continue
 ;
+;  Registers:
+;    r1: menu first line
+;    r2: menu text color
+;
 
 menu:
 	push fr
 	push r1
+	push r2
 
 	loadn r1, #menu1
+	loadn r2, #2048
 	call printMsg
 
+	pop r2
 	pop r1
 	pop fr
 	rts
@@ -237,16 +289,19 @@ menu:
 printIntro:
 	push fr
 	push r1
+	push r2
+
+	loadn r2, #0
 
 	loadn r1, #introLine1
 	call printMsg
 	loadn r1, #intro2Line1
 	call printMsg
 
+	pop r2
 	pop r1
 	pop fr
 	rts
-
 
 ;*******************************************************************************
 
@@ -257,10 +312,13 @@ printIntro:
 ;  continue
 ;
 ;  Parameters:
-;    r1 : message to be printed
+;    r1: message to be printed
+;    r2: text color
 ;
 ;  Registers:
-;    r0, r2 .. r5 : 'printBlock' parameters
+;    r0, r3: 'printBlock' parameters
+;    r4: 'enter' key
+;    r5: key pressed
 ;
 
 printMsg:
@@ -273,11 +331,10 @@ printMsg:
 	push r5
 
 	loadn r0, #0
-	loadn r2, #0
 	loadn r3, #1200
 	call printBlock
 
-	loadn r4, #13 ; enter
+	loadn r4, #13 ; enter key
 
 printMsgLoop:
 	inchar r5
@@ -294,7 +351,6 @@ printMsgLoop:
 	pop r0
 	pop fr
 	rts
-
 
 ;*******************************************************************************
 
@@ -329,6 +385,11 @@ printc:
 ;
 ;  Prints the memory block (specified size)
 ;
+;  Parameters:
+;    r0: first position
+;    r1: first character in the block you want to print
+;    r2: character
+;
 ;  Registers:
 ;    r0: current position
 ;    r1: current character
@@ -346,9 +407,14 @@ printBlock:
 	push r3
 	push r4
 	push r5
+	push r6
+
+	mov r6, r2
 
 printBlockLoop:
 	loadi r4, r1
+
+	mov r2, r6
 
 ;**** map specifics ****
 
@@ -375,6 +441,7 @@ printBlockLoop:
 	cmp r0, r3
 	jne printBlockLoop
 
+	pop r6
 	pop r5
 	pop r4
 	pop r3
@@ -394,7 +461,7 @@ breakln:
 
 ;******** clear ****************************************************************
 ;
-;  Clear the screen [0 .. 1200) by printing blank spaces.
+;  Clears the screen [0 .. 1200) by printing blank spaces.
 ;
 
 clear:
@@ -422,17 +489,36 @@ clearLoop:
 ;*******************************************************************************
 
 
+;******** reset ****************************************************************
+;
+;  Resets the content in all registers to zero
+;
+
+reset:
+	loadn r0, #0
+	loadn r1, #0
+	loadn r2, #0
+	loadn r3, #0
+	loadn r4, #0
+	loadn r5, #0
+	loadn r6, #0
+	loadn r7, #0
+	rts
+
+;*******************************************************************************
+
+
 ;******** printMap *************************************************************
 ;
 ;  Prints the current map, using the "printBlock" subroutine
 ;
-;  Registers:
-;    r0: first character position
-;    r1: first map line
-;    r2: default color
-;    r3: last character position
+;  Parameters:
+;    r4: first line of the map to be printed
 ;
-;    Note: the printable area has 40 characters * 30 lines = 1200 characters
+;  Registers:
+;    r0, r2, r3: 'printBlock' subroutine parameters
+;
+;  Note: the printable area has 40 characters * 30 lines = 1200 characters
 ;
 
 printMap:
@@ -441,13 +527,17 @@ printMap:
 	push r1
 	push r2
 	push r3
+	push r4
+
+	call getCurrentMap
+	mov r1, r0
 
 	loadn r0, #0
-	loadn r1, #mapLine1
 	loadn r2, #2048
 	loadn r3, #1200
 	call printBlock
 
+	pop r4
 	pop r3
 	pop r2
 	pop r1
@@ -457,15 +547,47 @@ printMap:
 
 ;*******************************************************************************
 
+
+;******** getCurrentMap *************************************************************
+;
+;  Returns the current map first line address
+;
+;  Parameters:
+;    r4: game map (zero-based)
+;
+;  Returns:
+;    r0: current map first line address
+;
+
+getCurrentMap:
+	push fr
+	push r4
+	
+	loadn r0, #1230
+	mul r0, r0, r4
+	loadn r4, #map1Line1
+	add r0, r0, r4
+
+	pop r4
+	pop fr
+	rts
+
+;*******************************************************************************
+
+
 ;******** getMapPositionContent ************************************************
 ;
-;  Gets the content of the map position specified in r0 and returns it in r3
+;  Returns the content of the map position specified in r0 and returns it in r3
 ;
-;    Registers:
-;      r0: map position (parameter)
-;      r1: temporary
-;      r2: temporary
-;      r3: content (return)
+;  Parameters:
+;    r0: map position
+;
+;  Returns:
+;    r3: content
+;
+;  Registers:
+;    r1: temporary
+;    r2: temporary
 ;
 
 getMapPositionContent:
@@ -476,10 +598,13 @@ getMapPositionContent:
 
 	loadn r1, #40
 	div r1, r0, r1 ; r1 = pos/40 ('\0')
-	loadn r3, #mapLine1
 
 	loadn r2, #0
 	add r2, r0, r1 ; pos + \0
+
+	call getCurrentMap
+	mov r3, r0
+
 	add r2, r2, r3 ; pos + \0 + map
 
 	loadi r2, r2
@@ -528,8 +653,9 @@ printNext:
 ;    r0: player's current position
 ;    r1: player
 ;    r2: key pressed
+;    r3: next stage (1: yes, 0: no)
 ;    r6: temporary
-;    r7: blank space 
+;    r7: blank space (' ')
 
 loop:
 	outchar r1, r0
@@ -551,7 +677,15 @@ loop:
 	cmp r2, r6
 	ceq moveRight
 
+	loadn r6, #1
+	call checkNext
+	cmp r3, r6
+	jeq loopExit
+
 	jmp loop
+
+loopExit:
+	rts
 
 ;*******************************************************************************
 
@@ -564,6 +698,7 @@ loop:
 ;    r0: player's current position
 ;    r1: temporary
 ;    r2: next map position content
+;    r6: temporary/walk-through objects
 ;    r7: blank space
 ;
 
@@ -579,9 +714,17 @@ moveUp:
 	sub r0, r0, r1
 	call getMapPositionContent
 	add r0, r0, r1
-	cmp r2, r7
-	jne moveUpReturn
 
+	cmp r2, r7
+	jeq moveUpDo
+
+	loadn r6, #'*'
+	cmp r2, r6
+	jeq moveUpDo
+
+	jmp moveUpReturn
+
+moveUpDo:
 	outchar r7, r0
 	sub r0, r0, r1
 
@@ -597,19 +740,29 @@ moveLeft:
 	push fr
 	push r1
 	push r2
+	push r6
 	push r7
 	
 	dec r0
 	call getMapPositionContent
 	inc r0
-	cmp r2, r7
-	jne moveLeftReturn
 
+	cmp r2, r7
+	jeq moveLeftDo
+
+	loadn r6, #'*'
+	cmp r2, r6
+	jeq moveLeftDo
+
+	jmp moveLeftReturn
+
+moveLeftDo:
 	outchar r7, r0
 	dec r0
 
 moveLeftReturn:
 	pop r7
+	pop r6
 	pop r2
 	pop r1
 	pop fr
@@ -627,9 +780,17 @@ moveDown:
 	add r0, r0, r1
 	call getMapPositionContent
 	sub r0, r0, r1
+	
 	cmp r2, r7
-	jne moveDownReturn
+	jeq moveDownDo
 
+	loadn r6, #'*'
+	cmp r2, r6
+	jeq moveDownDo
+
+	jmp moveUpReturn
+
+moveDownDo:
 	outchar r7, r0
 	add r0, r0, r1
 
@@ -645,21 +806,63 @@ moveRight:
 	push fr
 	push r1
 	push r2
+	push r6
 	push r7
 
 	inc r0
 	call getMapPositionContent
 	dec r0
-	cmp r2, r7
-	jne moveRightReturn
 	
+	cmp r2, r7
+	jeq moveRightDo
+
+	loadn r6, #'*'
+	cmp r2, r6
+	jeq moveRightDo
+
+	jmp moveRightReturn
+
+moveRightDo:
 	outchar r7, r0
 	inc r0
 
 moveRightReturn:
 	pop r7
+	pop r6
 	pop r2
 	pop r1
+	pop fr
+	rts
+
+;*******************************************************************************
+
+
+;******** checkNext ************************************************************
+;
+;  Checks if the player's standing in a portal (or whatever)
+;
+;  Registers:
+;    r0:
+;
+
+checkNext:
+	push fr
+	push r0
+	push r1
+	push r2
+
+	loadn r1, #'*'
+
+	loadn r3, #0
+	call getMapPositionContent
+	cmp r2, r1
+	jne checkNextReturn
+	loadn r3, #1
+
+checkNextReturn:
+	pop r2
+	pop r1
+	pop r0
 	pop fr
 	rts
 
