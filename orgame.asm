@@ -23,6 +23,7 @@
 ; 3840 black                        1111 0000
 ; ===========================================
 
+
 ;******** game menu ************************************************************
 ;
 ;  Game initial menu. Press start to continue
@@ -61,6 +62,7 @@ menu29  : string "                                        "
 menu30  : string "                                        "
 
 ;*******************************************************************************
+
 
 ;******** messages *************************************************************
 ;
@@ -227,24 +229,27 @@ map2Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 ;  This is the main section. The subroutines are called from here.
 ;  Ex: splash screen, main menu, print map, loop, game over, roll credits etc.
 ;
+;  Registers:
+;    r0 : player's initial position
+;    r1 : player character
+;    r4 : map index
+;    r7 : blank space
+;
 
 main:
-	loadn r1, #'X' ; player
-	loadn r2, #512 ; player color (green)
+	loadn r1, #'<' ; player character starts looking right
 	loadn r7, #' ' ; blank space ('floor')
-
-	add r1, r1, r2
 
 	call menu
 	call printIntro
 
-	loadn r0, #552 ; player initial position
+	loadn r0, #552 ; player's initial position
 	loadn r4, #0 ; loads first map
 	call printMap
 	call loop
 	call clear
 
-	loadn r0, #90  ; player initial position
+	loadn r0, #90  ; player's initial position
 	inc r4 ; next map
 	call printMap
 	call loop
@@ -357,13 +362,14 @@ printMsgLoop:
 
 ;******** printc ***************************************************************
 ;
-;  Prints a character and moves the cursor
-;
-;  Registers:
+;  Prints a character and moves the cursor to next position in the string
+;  
+;  Parameters:
 ;    r0: cursor position
 ;    r1: position in the string
 ;    r2; charcter color
 ;    r4: character to be printed
+;
 
 printc:
 	push r2 ; save r2 value
@@ -391,8 +397,6 @@ printc:
 ;    r2: character
 ;
 ;  Registers:
-;    r0: current position
-;    r1: current character
 ;    r2: character color
 ;    r3: last character position
 ;    r4: character to be printed
@@ -548,7 +552,7 @@ printMap:
 ;*******************************************************************************
 
 
-;******** getCurrentMap *************************************************************
+;******** getCurrentMap ********************************************************
 ;
 ;  Returns the current map first line address
 ;
@@ -651,14 +655,29 @@ printNext:
 ;
 ;  Registers:
 ;    r0: player's current position
-;    r1: player
+;    r1: player character
 ;    r2: key pressed
-;    r3: next stage (1: yes, 0: no)
+;    r3: nextStage subroutine return value (1: yes, 0: no)
 ;    r6: temporary
 ;    r7: blank space (' ')
+;
 
 loop:
+	push fr
+	push r0
+	push r1
+	push r2
+	push r3
+	push r4
+	push r5
+	push r6
+	push r7
+	
+	loadn r2, #2816 ; player character color (yellow)
+	add r1, r1, r2 ; adds player character color
 	outchar r1, r0
+
+_loop:
 	inchar r2
 	
 	loadn r6, #'w'
@@ -678,13 +697,34 @@ loop:
 	ceq moveRight
 
 	loadn r6, #1
-	call checkNext
+	call checkNextStage
 	cmp r3, r6
 	jeq loopExit
 
-	jmp loop
+	loadn r6, #255 ; continues only if a key was pressed
+	cmp r2, r6
+	jeq _loop
+
+;**** key pressed ****
+
+	loadn r2, #2816 ; player character color (yellow)
+	add r1, r1, r2 ; adds player character color
+	outchar r1, r0 ; updates position (moves)
+
+	jmp _loop
+
+;*********************
 
 loopExit:
+	pop r7
+	pop r6
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	pop r0
+	pop fr
 	rts
 
 ;*******************************************************************************
@@ -705,15 +745,16 @@ loopExit:
 ;***** w (up) *****
 moveUp:
 	push fr
-	push r1
 	push r2
+	push r3
 	push r7
 	
-	loadn r1, #40
+	loadn r1, #'$' ; player character look up
+	loadn r3, #40
 	
-	sub r0, r0, r1
+	sub r0, r0, r3
 	call getMapPositionContent
-	add r0, r0, r1
+	add r0, r0, r3
 
 	cmp r2, r7
 	jeq moveUpDo
@@ -726,23 +767,24 @@ moveUp:
 
 moveUpDo:
 	outchar r7, r0
-	sub r0, r0, r1
+	sub r0, r0, r3
 
 moveUpReturn:
 	pop r7
+	pop r3
 	pop r2
-	pop r1
 	pop fr
 	rts
 
 ;***** a (left) *****
 moveLeft:
 	push fr
-	push r1
 	push r2
 	push r6
 	push r7
-	
+
+	loadn r1, #'>' ; player character look left
+
 	dec r0
 	call getMapPositionContent
 	inc r0
@@ -764,22 +806,22 @@ moveLeftReturn:
 	pop r7
 	pop r6
 	pop r2
-	pop r1
 	pop fr
 	rts
 
 ;***** s (down) *****
 moveDown:
 	push fr
-	push r1
 	push r2
+	push r3
 	push r7
 	
-	loadn r1, #40
+	loadn r1, #'^' ; player character look down
+	loadn r3, #40
 	
-	add r0, r0, r1
+	add r0, r0, r3
 	call getMapPositionContent
-	sub r0, r0, r1
+	sub r0, r0, r3
 	
 	cmp r2, r7
 	jeq moveDownDo
@@ -792,22 +834,23 @@ moveDown:
 
 moveDownDo:
 	outchar r7, r0
-	add r0, r0, r1
+	add r0, r0, r3
 
 moveDownReturn:
 	pop r7
+	pop r3
 	pop r2
-	pop r1
 	pop fr
 	rts
 
 ;***** d (right) *****
 moveRight:
 	push fr
-	push r1
 	push r2
 	push r6
 	push r7
+	
+	loadn r1, #'<' ; player character look right
 
 	inc r0
 	call getMapPositionContent
@@ -830,22 +873,28 @@ moveRightReturn:
 	pop r7
 	pop r6
 	pop r2
-	pop r1
 	pop fr
 	rts
 
 ;*******************************************************************************
 
 
-;******** checkNext ************************************************************
+;******** checkNextStage ************************************************************
 ;
 ;  Checks if the player's standing in a portal (or whatever)
 ;
+;  Parameters:
+;    r0: player position
+;
+;  Returns:
+;    r3: next level? (1: yes, 0: no)
+;
 ;  Registers:
-;    r0:
+;    r1: temporary
+;    r2: getMapPositionContent returned value
 ;
 
-checkNext:
+checkNextStage:
 	push fr
 	push r0
 	push r1
@@ -856,10 +905,10 @@ checkNext:
 	loadn r3, #0
 	call getMapPositionContent
 	cmp r2, r1
-	jne checkNextReturn
+	jne checkNextStageReturn
 	loadn r3, #1
 
-checkNextReturn:
+checkNextStageReturn:
 	pop r2
 	pop r1
 	pop r0
