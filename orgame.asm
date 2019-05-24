@@ -220,8 +220,18 @@ map2Line28 : string "@                                      @"
 map2Line29 : string "@                                      @"
 map2Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
+;*******************************************************************************
+
+
+
+;******* variables ****************************************************************
+;  Variables used through the execution to spare some registers
+;
+
+shadowPos: var #1
 
 ;*******************************************************************************
+
 
 
 ;******** main *****************************************************************
@@ -243,7 +253,7 @@ main:
 	call menu
 	call printIntro
 
-	loadn r0, #552 ; player's initial position
+	loadn r0, #44 ; player's initial position
 	loadn r4, #0 ; loads first map
 	call printMap
 	call loop
@@ -258,6 +268,9 @@ main:
 	;call gameOver
 	call reset
 	jmp main
+
+;*******************************************************************************
+
 
 
 ;******** menu *****************************************************************
@@ -384,7 +397,145 @@ printc:
 	pop r2 ; restore r2 value
 	rts
 
+
 ;*******************************************************************************
+
+
+
+;******** printShadow ***********************************************************
+;
+;  Print the shadow vertically on the map	 
+;
+;  Parameters:
+;    r0: player's position
+;    r5: counter
+;
+;  Registers:
+;	 r1: shadow's position
+;    r2: character
+;	 r3: delay time
+;    r4: temporary
+;
+
+printShadow:
+	push fr
+	push r0
+	push r1
+	push r2
+	push r3
+	push r4
+	;push r5
+	push r6
+	push r7
+
+	; compare counter with end of delay time 
+	loadn r6, #1200 
+	cmp r5, r6
+	jle printShadowEnd
+	
+	; reset counter
+	loadn r5, #0
+	
+	; load variable
+	load r1, shadowPos
+	loadn r2, #'}'
+	loadn r4, #3840
+	add r2, r2, r4
+
+	; print shadow
+	outchar r2, r1
+
+	; store new shadow's position
+	loadn r4, #40
+	mod r4, r1, r4
+	loadn r6, #1160
+	add r4, r6, r4
+	cmp r1, r4
+	jne printShadowSame
+	
+	loadn r4, #40
+	mod r1, r1, r4
+	inc r1
+	store shadowPos, r1
+	jmp printShadowEnd
+
+printShadowSame:
+	loadn r4, #40
+	add r1, r1, r4
+
+	store shadowPos, r1
+	
+printShadowEnd:
+	call checkShadow
+	
+	pop r7
+	pop r6
+	;pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	pop r0
+	pop fr
+
+	rts
+
+;*******************************************************************************
+
+
+
+;******** checkShadow ***********************************************************
+;
+;  compare player's position with shadow
+;
+;  Parameters:
+;    r0: player's position
+;
+;  Registers:
+;	 r1: shadow's position
+;    r2: character
+;    r4: temporary
+;
+checkShadow:
+	push fr
+	push r0
+	push r1
+	push r2
+	push r3
+	push r4
+	push r5
+	push r6
+	push r7
+
+	load r1, shadowPos
+	loadn r2, #40
+	mod r3, r0, r2
+	mod r4, r1, r2
+	
+	cmp r3, r4
+	jgr checkShadowEnd
+	
+	cmp r0, r1
+	jgr checkShadowEnd	
+	
+	call clear
+	jmp main
+
+checkShadowEnd:
+	pop r7
+	pop r6
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	pop r0
+	pop fr
+	
+	rts
+
+;*******************************************************************************
+
 
 
 ;******** printBlock ***********************************************************
@@ -676,6 +827,11 @@ loop:
 	loadn r2, #2816 ; player character color (yellow)
 	add r1, r1, r2 ; adds player character color
 	outchar r1, r0
+	
+	loadn r2, #0
+	store shadowPos, r2
+	
+	loadn r5, #0
 
 _loop:
 	inchar r2
@@ -699,17 +855,23 @@ _loop:
 	loadn r6, #1
 	call checkNextStage
 	cmp r3, r6
-	jeq loopExit
-
+	jeq loopExit	
+	
+	; delay
+	inc r5
+	call printShadow
+	
 	loadn r6, #255 ; continues only if a key was pressed
 	cmp r2, r6
 	jeq _loop
-
+	
+	
 ;**** key pressed ****
-
 	loadn r2, #2816 ; player character color (yellow)
 	add r1, r1, r2 ; adds player character color
 	outchar r1, r0 ; updates position (moves)
+	
+
 
 	jmp _loop
 
