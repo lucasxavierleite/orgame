@@ -1,4 +1,4 @@
-; ORGAME - provisory name
+; ORGAME
 ;
 ;
 ; ============== COLOR TABLE ================
@@ -996,11 +996,13 @@ _loop_delay:
 	
 	
 ;**** key pressed ****
-	loadn r2, #2816 ; player character color (yellow)
-	add r1, r1, r2 ; adds player character color
-	outchar r1, r0 ; updates position (moves)
-	loadn r2, #255
+	loadn r6, #2816 ; player character color (yellow)
 
+	cmp r1, r6 ; if r1 >= r6 then the color has already been applied
+	jeg _loop  ; and there's nothing to update
+
+	add r1, r1, r6 ; adds player character color
+	outchar r1, r0 ; updates position (moves)
 
 	jmp _loop
 
