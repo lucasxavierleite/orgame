@@ -189,36 +189,129 @@ map1Line28 : string "@    @      @         @@@@@@@@@@   @@@@@"
 map1Line29 : string "@     @@@@@@         @@@@@@@@@@@@ @@@@@@"
 map1Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
-map2Line1  : string "                                        "
-map2Line2  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-map2Line3  : string "@                                      @"
-map2Line4  : string "@                                      @"
-map2Line5  : string "@                                      @"
-map2Line6  : string "@     #####                  #####     @"
-map2Line7  : string "@    ########              ########    @"
-map2Line8  : string "@      ########          ########      @"
-map2Line9  : string "@                                      @"
-map2Line10 : string "@     @@@@@@@@@          @@@@@@@@@     @"
-map2Line11 : string "@     @       @          @       @     @"
-map2Line12 : string "@     @  ***  @          @  ***  @     @"
-map2Line13 : string "@     @  ***  @          @  ***  @     @"
-map2Line14 : string "@     @  ***  @          @  ***  @     @"
-map2Line15 : string "@     @       @          @       @     @"
-map2Line16 : string "@     @@@@@@@@@          @@@@@@@@@     @"
-map2Line17 : string "@                                      @"
-map2Line18 : string "@                                      @"
-map2Line19 : string "@                                      @"
-map2Line20 : string "@                                      @"
-map2Line21 : string "@                @    @                @"
-map2Line22 : string "@                                      @"
-map2Line23 : string "@                                      @"
-map2Line24 : string "@              @@@@@@@@@@              @"
-map2Line25 : string "@             @**********@             @"
-map2Line26 : string "@             @**********@             @"
-map2Line27 : string "@              @@@@  @@@@              @"
-map2Line28 : string "@                                      @"
-map2Line29 : string "@                                      @"
+map2Line1  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map2Line2  : string "@                 @      @             @"
+map2Line3  : string "@                 @      @             @"
+map2Line4  : string "@                 @      @             @"
+map2Line5  : string "@                 @      @@            @"
+map2Line6  : string "@@@@@@@   @@@@@@@             @     @  @"
+map2Line7  : string "@        @        @        @@          @"
+map2Line8  : string "@        @        @         @@         @"
+map2Line9  : string "@        @        @          @         @"
+map2Line10 : string "@@@@@@@@@@        @          @@@@@@@@@@@"
+map2Line11 : string "@                 @                  @@@"
+map2Line12 : string "@                 @                   @@"
+map2Line13 : string "@                 @      @@        @@ @@"
+map2Line14 : string "@       @@@@@@@@@@@   @@@@  @@@@@@  @  @"
+map2Line15 : string "@                       @  @@    @@    @"
+map2Line16 : string "@                         @@      @@   @"
+map2Line17 : string "@                        @@        @@  @"
+map2Line18 : string "@                       @@          @  @"
+map2Line19 : string "@                  @@   @              @"
+map2Line20 : string "@                 @@    @    **        @"
+map2Line21 : string "@            @@@@@@     @   **         @"
+map2Line22 : string "@          @@@          @   **         @"
+map2Line23 : string "@        @@@      @@  @ @   **         @"
+map2Line24 : string "@ @ @ @@@@       @@  @@ @    **        @"
+map2Line25 : string "@      @        @@  @@  @              @"
+map2Line26 : string "@  @ @ @      @@  @@  @  @@          @@@"
+map2Line27 : string "@ @ @ @@       @@  @@   @@            @@"
+map2Line28 : string "@      @     @@  @@  @@   @@        @@ @"
+map2Line29 : string "@@ @ @ @                   @@      @@  @"
 map2Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+map3Line1  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map3Line2  : string "@   @                                  @"
+map3Line3  : string "@   @                                  @"
+map3Line4  : string "@                                      @"
+map3Line5  : string "@      @@@@   @    @@@@@@@@@@@@@@@@@@@@@"
+map3Line6  : string "@      @      @                        @"
+map3Line7  : string "@   @@@@      @                        @"
+map3Line8  : string "@   @     @@@@@@@@@@@@@@@@@@   @       @"
+map3Line9  : string "@   @     @                @   @       @"
+map3Line10 : string "@   @@@@@@@                @   @       @"
+map3Line11 : string "@                @@@@@@@@  @@@@@    @@@@"
+map3Line12 : string "@                       @  @           @"
+map3Line13 : string "@@@@@                   @  @           @"
+map3Line14 : string "@            @@@@@@@@@  @  @           @"
+map3Line15 : string "@            @     @ @  @  @   @       @"
+map3Line16 : string "@            @     @ @  @  @   @       @"
+map3Line17 : string "@@@@@@       @  @    @  @      @  @@@@@@"
+map3Line18 : string "@               @    @  @      @       @"
+map3Line19 : string "@               @    @  @      @       @"
+map3Line20 : string "@      @@@@@@@@@@    @@@@@@@@@@@@@@@@@@@"
+map3Line21 : string "@               @              @***    @"
+map3Line22 : string "@               @              @***    @"
+map3Line23 : string "@@@@@@@@        @  @     @@@@@@@***    @"
+map3Line24 : string "@      @   @@   @  @     @     @***    @"
+map3Line25 : string "@      @   @    @@@@@@  @@     @@@@    @"
+map3Line27 : string "@      @   @            @              @"
+map3Line26 : string "@  @@@@@   @            @              @"
+map3Line28 : string "@          @     @            @        @"
+map3Line29 : string "@          @     @            @        @"
+map3Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+map4Line1  : string "                                        "
+map4Line2  : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+map4Line3  : string "@                                      @"
+map4Line4  : string "@                                      @"
+map4Line5  : string "@                                      @"
+map4Line6  : string "@     #####                  #####     @"
+map4Line7  : string "@    ########              ########    @"
+map4Line8  : string "@      ########          ########      @"
+map4Line9  : string "@                                      @"
+map4Line10 : string "@     @@@@@@@@@          @@@@@@@@@     @"
+map4Line11 : string "@     @       @          @       @     @"
+map4Line12 : string "@     @  ***  @          @  ***  @     @"
+map4Line13 : string "@     @  ***  @          @  ***  @     @"
+map4Line14 : string "@     @  ***  @          @  ***  @     @"
+map4Line15 : string "@     @       @          @       @     @"
+map4Line16 : string "@     @@@@@@@@@          @@@@@@@@@     @"
+map4Line17 : string "@                                      @"
+map4Line18 : string "@                                      @"
+map4Line19 : string "@                                      @"
+map4Line20 : string "@                                      @"
+map4Line21 : string "@                @    @                @"
+map4Line22 : string "@                                      @"
+map4Line23 : string "@                                      @"
+map4Line24 : string "@              @@@@@@@@@@              @"
+map4Line25 : string "@             @**********@             @"
+map4Line26 : string "@             @**********@             @"
+map4Line27 : string "@              @@@@  @@@@              @"
+map4Line28 : string "@                                      @"
+map4Line29 : string "@                                      @"
+map4Line30 : string "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+map5Line1  : string "                                        "
+map5Line2  : string "                                        "
+map5Line3  : string "                                        "
+map5Line4  : string "                                        "
+map5Line5  : string "                                        "
+map5Line6  : string "                                        "
+map5Line7  : string "                                        "
+map5Line8  : string "                                        "
+map5Line9  : string "                                        "
+map5Line10 : string "    @@  @@@@@@@@  @@                    "
+map5Line11 : string "  @@  @@        @@  @@                  "
+map5Line12 : string "  @@                @@                  "
+map5Line13 : string "  @@                  @@                "
+map5Line14 : string "@@    @@    @@          @@              "
+map5Line15 : string "@@                        @@@@          "
+map5Line16 : string "@@      @@@@                  @@@@@@@@@@"
+map5Line17 : string "@@  @@  @@    @@                       @"
+map5Line18 : string "@@    @@@@@@@@                        @@"
+map5Line19 : string "@@                                    @@"
+map5Line20 : string "@@                                    @@"
+map5Line21 : string "@@                                    @@"
+map5Line22 : string "@@                                    @@"
+map5Line23 : string "@@                                  @@  "
+map5Line24 : string "  @@                                @@  "
+map5Line25 : string "  @@    @@@@    @@@@@@@@    @@@@    @@  "
+map5Line26 : string "  @@    @@@@  @@      @@  @@  @@    @@  "
+map5Line27 : string "  @@  @@    @@          @@    @@  @@    "
+map5Line28 : string "    @@                          @@      "
+map5Line29 : string "                                        "
+map5Line30 : string "                                        "
 
 ;*******************************************************************************
 
@@ -253,13 +346,35 @@ main:
 	call menu
 	call printIntro
 
-	loadn r0, #44 ; player's initial position
+	; load map1
+	loadn r0, #673 ; player's initial position || default: ???
 	loadn r4, #0 ; loads first map
 	call printMap
 	call loop
 	call clear
 
-	loadn r0, #90  ; player's initial position
+	; load map2
+	loadn r0, #1110  ; player's initial position || default: ???
+	inc r4 ; next map
+	call printMap
+	call loop
+	call clear
+	
+	; load map3
+	loadn r0, #1117  ; player's initial position || default: ???
+	inc r4 ; next map
+	call printMap
+	call loop
+	call clear
+
+	; load map4
+	loadn r0, #890  ; player's initial position || default: ???
+	inc r4 ; next map
+	call printMap
+	call loop
+	call clear
+	; load map5
+	loadn r0, #890  ; player's initial position || default: ???
 	inc r4 ; next map
 	call printMap
 	call loop
@@ -429,7 +544,7 @@ printShadow:
 	push r7
 
 	; compare counter with end of delay time 
-	loadn r6, #1200 
+	loadn r6, #1 
 	cmp r5, r6
 	jle printShadowEnd
 	
@@ -439,7 +554,7 @@ printShadow:
 	; load variable
 	load r1, shadowPos
 	loadn r2, #'}'
-	loadn r4, #3840
+	loadn r4, #0
 	add r2, r2, r4
 
 	; print shadow
@@ -834,7 +949,12 @@ loop:
 	loadn r5, #0
 
 _loop:
+	nop
+	nop
+	nop
 	inchar r2
+		
+	
 	
 	loadn r6, #'w'
 	cmp r2, r6
@@ -851,6 +971,16 @@ _loop:
 	loadn r6, #'d'
 	cmp r2, r6
 	ceq moveRight
+	loadn r6, #0
+	
+	; compare counter with end of delay time 
+	loadn r6, #10000 
+	loadn r5, #0
+	
+_loop_delay:
+	inc r5
+	cmp r5, r6
+	jle _loop_delay
 
 	loadn r6, #1
 	call checkNextStage
@@ -858,7 +988,6 @@ _loop:
 	jeq loopExit	
 	
 	; delay
-	inc r5
 	call printShadow
 	
 	loadn r6, #255 ; continues only if a key was pressed
@@ -870,7 +999,7 @@ _loop:
 	loadn r2, #2816 ; player character color (yellow)
 	add r1, r1, r2 ; adds player character color
 	outchar r1, r0 ; updates position (moves)
-	
+	loadn r2, #255
 
 
 	jmp _loop
@@ -928,6 +1057,15 @@ moveUp:
 	jmp moveUpReturn
 
 moveUpDo:
+	; compare counter with end of delay time 
+	loadn r6, #1000 
+	loadn r5, #0
+	
+	_loop_delayUp:
+	inc r5
+	cmp r5, r6
+	jle _loop_delayUp
+	
 	outchar r7, r0
 	sub r0, r0, r3
 
@@ -961,6 +1099,14 @@ moveLeft:
 	jmp moveLeftReturn
 
 moveLeftDo:
+	; compare counter with end of delay time 
+	loadn r6, #1000 
+	loadn r5, #0
+	
+	_loop_delayLeft:
+	inc r5
+	cmp r5, r6
+	jle _loop_delayLeft
 	outchar r7, r0
 	dec r0
 
@@ -995,6 +1141,14 @@ moveDown:
 	jmp moveUpReturn
 
 moveDownDo:
+; compare counter with end of delay time 
+	loadn r6, #1000 
+	loadn r5, #0
+	
+	_loop_delayDown:
+	inc r5
+	cmp r5, r6
+	jle _loop_delayDown
 	outchar r7, r0
 	add r0, r0, r3
 
@@ -1028,6 +1182,14 @@ moveRight:
 	jmp moveRightReturn
 
 moveRightDo:
+; compare counter with end of delay time 
+	loadn r6, #1000 
+	loadn r5, #0
+	
+	_loop_delayRight:
+	inc r5
+	cmp r5, r6
+	jle _loop_delayRight
 	outchar r7, r0
 	inc r0
 
