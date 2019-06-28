@@ -313,36 +313,36 @@ map5Line28 : string "    @@                          @@      "
 map5Line29 : string "                                        "
 map5Line30 : string "                                        "
 
-gameOverLine1  : string "                                      "
-gameOverLine2  : string "       @@@@   @@@  @@    @@ @@@@      "
-gameOverLine3  : string "      @      @   @ @ @  @ @ @         "
-gameOverLine4  : string "      @  @@@ @@@@@ @  @@  @ @@@   	   "
-gameOverLine5  : string "      @    @ @   @ @      @ @         "
-gameOverLine6  : string "       @@@@  @   @ @      @ @@@@      "
-gameOverLine7  : string "                                      "
-gameOverLine8  : string "                                      "
-gameOverLine9  : string "      @@@@  @       @ @@@@ @@@@	   "
-gameOverLine10 : string "     @    @  @     @  @    @   @      " 
-gameOverLine11 : string "     @    @   @   @   @@   @@@@       "
-gameOverLine12 : string "     @    @    @ @    @    @  @       "
-gameOverLine13 : string "      @@@@      @     @@@@ @   @      "
-gameOverLine14 : string "                                      "
-gameOverLine15 : string "    *******************************   "
-gameOverLine16 : string "                                      "
-gameOverLine17 : string "          @@@     @   @    @          "
-gameOverLine18 : string "          @  @   @ @   @  @           "
-gameOverLine19 : string "          @  @  @@@@@   @@            "
-gameOverLine20 : string "          @@@  @     @  @@            "
-gameOverLine21 : string "                                      "
-gameOverLine22 : string "                                      "
-gameOverLine23 : string "          @  @  @@@@  @@@@            "
-gameOverLine24 : string "          @  @  @  @     @            "
-gameOverLine25 : string "          @@@@  @@@@    @@            "
-gameOverLine26 : string "             @     @     @            "
-gameOverLine27 : string "             @     @  @@@@            "
-gameOverLine28 : string "                                      "
-gameOverLine29 : string "                                      "
-gameOverLine30 : string "                                      "
+gameOverLine1  : string "                                        "
+gameOverLine2  : string "       @@@@   @@@  @@    @@ @@@@        "
+gameOverLine3  : string "      @      @   @ @ @  @ @ @           "
+gameOverLine4  : string "      @  @@@ @@@@@ @  @@  @ @@@         "
+gameOverLine5  : string "      @    @ @   @ @      @ @           "
+gameOverLine6  : string "       @@@@  @   @ @      @ @@@@        "
+gameOverLine7  : string "                                        "
+gameOverLine8  : string "                                        "
+gameOverLine9  : string "       @@@@  @       @ @@@@ @@@@        "
+gameOverLine10 : string "      @    @  @     @  @    @   @       " 
+gameOverLine11 : string "      @    @   @   @   @@   @@@@        "
+gameOverLine12 : string "      @    @    @ @    @    @  @        "
+gameOverLine13 : string "       @@@@      @     @@@@ @   @       "
+gameOverLine14 : string "                                        "
+gameOverLine15 : string "                                        "
+gameOverLine16 : string "                                        "
+gameOverLine17 : string "          @@@     @   @    @            "
+gameOverLine18 : string "          @  @   @ @   @  @             "
+gameOverLine19 : string "          @  @  @@@@@   @@              "
+gameOverLine20 : string "          @@@  @     @  @@              "
+gameOverLine21 : string "                                        "
+gameOverLine22 : string "                                        "
+gameOverLine23 : string "          @  @  @@@@  @@@@              "
+gameOverLine24 : string "          @  @  @  @     @              "
+gameOverLine25 : string "          @@@@  @@@@    @@              "
+gameOverLine26 : string "             @     @     @              "
+gameOverLine27 : string "             @     @  @@@@              "
+gameOverLine28 : string "                                        "
+gameOverLine29 : string "                                        "
+gameOverLine30 : string "                                        "
 
 ;*******************************************************************************
 
@@ -470,6 +470,48 @@ printIntro:
 
 ;*******************************************************************************
 
+;******** gameOver ********************************************************
+;
+;  Prints the final to the game story, using the 'printMsg' subroutine.
+;
+
+gameOver:
+	push fr
+	push r1
+	push r2
+	
+	loadn r2, #13
+	
+	call printGameOver
+	
+	pop r2
+	pop r1
+	pop fr
+	rts
+
+;******************************************************************************
+
+;******** printGameOver ********************************************************
+;
+;  Prints the final to the game story, using the 'printMsg' subroutine.
+;
+
+printGameOver:
+	push fr
+	push r1
+	push r2
+
+	loadn r2, #0
+
+	loadn r1, #gameOverLine1
+	call printMsg
+
+	pop r2
+	pop r1
+	pop fr
+	rts
+
+;******************************************************************************
 
 ;******** printMsg ***********************************************************
 ;
@@ -578,7 +620,7 @@ printShadow:
 	; load variable
 	load r1, shadowPos
 	loadn r2, #'}'
-	loadn r4, #0
+	loadn r4, #3840
 	add r2, r2, r4
 
 	; print shadow
